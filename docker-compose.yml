@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: future-driver-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    networks:
+      - future-driver-app-network
+    depends_on:
+      - composer_installation
+  composer_installation:
+    container_name: composer_installation
+    image: composer
+    volumes:
+      - ./:/app
+    command: composer install
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - future-driver-app-network
+  db:
+     image: postgres:13
+     container_name: postgres-db
+     environment:
+       POSTGRES_DB: fd, fd_test
+       POSTGRES_USER: fd
+       POSTGRES_PASSWORD: secret
+     ports:
+       - "5432:5432"
+     volumes:
+       - postgres_data:/var/lib/postgresql/data
+     networks:
+       - future-driver-app-network
+
+networks:
+  future-driver-app-network:
+    driver: bridge
+volumes:
+  postgres_data:
