@@ -6,11 +6,13 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     libicu-dev \
     libonig-dev \
+    libpq-dev \
     zip \
     unzip \
     git \
     && docker-php-ext-install \
-    pdo_mysql \
+    pdo \
+    pdo_pgsql \
     intl \
     mbstring \
     zip
