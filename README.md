@@ -1,6 +1,3 @@
-Here’s a `README.md` file to help you document your project setup and usage with Docker and Composer.
-
----
 
 # Future Driver App
 
