@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Unit\Domain\User\Entity;
 
-use App\Domain\User\Entity\User;
+use App\UserManagement\Entity\User;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

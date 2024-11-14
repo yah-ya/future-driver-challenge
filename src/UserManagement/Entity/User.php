@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Domain\User\Entity;
+namespace App\UserManagement\Entity;
 
 use ApiPlatform\State\ApiResource;
-use App\Domain\User\Repository\UserRepository;
+use App\CompanyManagement\Entity\Company;
+use App\UserManagement\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -52,10 +53,10 @@ class User
     private $role;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Company::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="App\CompanyManagement\Entity\Company")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $company;
+    private ?Company $company;
 
     public function __construct(string $name, string $role)
     {

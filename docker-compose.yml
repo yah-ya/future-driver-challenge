@@ -41,6 +41,17 @@ services:
        - postgres_data:/var/lib/postgresql/data
      networks:
        - future-driver-app-network
+  db_test:
+    image: postgres:latest
+    container_name: postgres-db-test
+    environment:
+      POSTGRES_DB: fd_db_test
+      POSTGRES_USER: fd_db
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5433:5432"
+    networks:
+      - future-driver-app-network
 networks:
   future-driver-app-network:
     driver: bridge

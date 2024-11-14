@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Company\Entity;
+namespace App\CompanyManagement\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Get;
@@ -26,4 +26,11 @@ class Company
     #[Assert\Length(min: 5, max: 100)]
     private string $name;
 
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
 }
+

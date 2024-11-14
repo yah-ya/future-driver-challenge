@@ -1,9 +1,9 @@
 <?php
-namespace App\Domain\Company\Repository;
+namespace App\CompanyManagement\Repository;
 
-use App\Domain\Company\Entity\Company;
-use App\Repository\BaseRepository;
-use Symfony\Bridge\Doctrine\ManagerRegistry;
+use App\CompanyManagement\Entity\Company;
+use App\Infrastructure\Repository\BaseRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 class CompanyRepository extends BaseRepository
 {

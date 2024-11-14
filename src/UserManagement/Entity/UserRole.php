@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\User\ValueObject;
+namespace App\UserManagement\Entity;
 
 final class UserRole
 {
